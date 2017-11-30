@@ -4,11 +4,16 @@
 /[Bb]uild/
 /[Bb]uilds/
 /Assets/AssetStoreTools*
+# uFlex
 /Assets/uFlex/Common/Models/testzone.obj
 /Assets/uFleX/Common/Skyboxes*
 /Assets/uFleX/Scenes*
 /Assets/uFlex/Meshes*
 /Assets/uFlex/ScreenSpaceFluids uFlex*
+# SteamVR
+/Assets/SteamVR/Extras*
+/Assets/SteamVR/InteractionSystem*
+/Assets/SteamVR/Scenes*
 
 # Visual Studio 2015 cache directory
 /.vs/
