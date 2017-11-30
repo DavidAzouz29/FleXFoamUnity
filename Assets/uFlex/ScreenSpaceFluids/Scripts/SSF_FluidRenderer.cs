@@ -56,15 +56,15 @@ namespace SSF
 
             m_blurDepthMaterial.hideFlags = HideFlags.HideAndDontSave;
 
-            m_particles = new ParticleSystem.Particle[m_ps.maxParticles];
-            m_positions = new Vector4[m_ps.maxParticles];
+            m_particles = new ParticleSystem.Particle[m_ps.main.maxParticles];
+            m_positions = new Vector4[m_ps.main.maxParticles];
 
-            m_velocities = new Vector3[m_ps.maxParticles]; ;
+            m_velocities = new Vector3[m_ps.main.maxParticles];
 
-            m_colors = new Color[m_ps.maxParticles]; ;
+            m_colors = new Color[m_ps.main.maxParticles];
 
-            m_posBuffer = new ComputeBuffer(m_ps.maxParticles, 16);
-            m_colorBuffer = new ComputeBuffer(m_ps.maxParticles, 16);
+            m_posBuffer = new ComputeBuffer(m_ps.main.maxParticles, 16);
+            m_colorBuffer = new ComputeBuffer(m_ps.main.maxParticles, 16);
 
             m_particlesCount = m_ps.GetParticles(m_particles);
 

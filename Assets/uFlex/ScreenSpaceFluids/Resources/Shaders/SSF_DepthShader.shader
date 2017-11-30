@@ -39,21 +39,21 @@ SubShader {
 			float2 tex : TEXCOORD0;
 			float3 viewPos: TEXCOORD1;
 			float4 projPos : TEXCOORD2; //Screen position of vertex
-		//	float pointSize : PSIZE;
+			float pointSize : PSIZE;
 		};
 
 
 		 v2f vert (uint id : SV_VertexID, uint inst : SV_InstanceID)
 		{
 			v2f o;
-
-			float4 viewPos = mul(UNITY_MATRIX_MV, float4(buf_Positions[inst].xyz, 1.0)) + float4(buf_Vertices[id].x * _PointScale, buf_Vertices[id].y * _PointScale, 0.0, 0.0);
+			o.pointSize = min(1, (buf_Positions[inst].xyzw) / _PointScale);
+			float4 viewPos = mul(UNITY_MATRIX_MV, float4(buf_Positions[inst].xyz, 1.0)) + float4(buf_Vertices[id].x * o.pointSize, buf_Vertices[id].y * o.pointSize, 0.0, 0.0);
 
 			o.position = mul(UNITY_MATRIX_P, viewPos);
 			o.tex = MultiplyUV(UNITY_MATRIX_TEXTURE0, buf_Vertices[id] + 0.5);
 			o.viewPos = viewPos.xyz;
 			o.projPos = ComputeScreenPos(o.position);
-			//	o.pointSize = -_PointScale * _PointRadius / viewPos.z;
+			//o.pointSize = -_PointScale * _PointRadius / viewPos.z;
 
 			return o; 
 		}
@@ -94,6 +94,8 @@ SubShader {
 				OUT.color = depth;
 			#endif
 		//	OUT.color = Linear01Depth(depth);
+
+				//OUT.color = 0.0f;
 			return OUT;
 
 		}

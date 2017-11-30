@@ -27,7 +27,7 @@ namespace uFlex
 
         private Color[] m_colors;
 
-        private ParticleSystem.Particle[] m_particles;
+        private ParticleSystem.Particle[] m_particles; //65536
 
         void Awake()
         {
@@ -36,15 +36,15 @@ namespace uFlex
 
         void OnEnable()
         {
-            m_particles = new ParticleSystem.Particle[m_ps.maxParticles];
-            m_positions = new Vector4[m_ps.maxParticles];
+            m_particles = new ParticleSystem.Particle[m_ps.main.maxParticles];
+            m_positions = new Vector4[m_ps.main.maxParticles];
 
-            m_velocities = new Vector3[m_ps.maxParticles]; ;
+            m_velocities = new Vector3[m_ps.main.maxParticles];
 
-            m_colors = new Color[m_ps.maxParticles]; ;
+            m_colors = new Color[m_ps.main.maxParticles];
 
-            m_posBuffer = new ComputeBuffer(m_ps.maxParticles, 16);
-            m_colorBuffer = new ComputeBuffer(m_ps.maxParticles, 16);
+            m_posBuffer = new ComputeBuffer(m_ps.main.maxParticles, 16);
+            m_colorBuffer = new ComputeBuffer(m_ps.main.maxParticles, 16);
 
             m_particlesCount = m_ps.GetParticles(m_particles);
 

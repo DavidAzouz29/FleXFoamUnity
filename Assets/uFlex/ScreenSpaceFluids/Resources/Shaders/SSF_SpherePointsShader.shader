@@ -48,7 +48,7 @@ SubShader
 			float3 viewPos: TEXCOORD2;
 		//	float4 projPos: TEXCOORD3;
 			float4 lightDir: TEXCOORD4;
-		//	float pointSize : PSIZE;
+			float pointSize : PSIZE;
 		};
 
 
@@ -71,6 +71,8 @@ SubShader
 			o.tex = MultiplyUV (UNITY_MATRIX_TEXTURE0, buf_Vertices[id] + 0.5);
 
 			o.lightDir = mul(UNITY_MATRIX_MV, float4(normalize(_WorldSpaceLightPos0.xyz), 0.0));
+
+			o.pointSize = 0.1f;
 
 			return o; 
 		}
@@ -123,7 +125,7 @@ SubShader
 			float3 ambient = i.color * UNITY_LIGHTMODEL_AMBIENT.rgb;
 
 			OUT.color = float4(ambient + diffuse, 1.0);
-			
+			//OUT.color = float4(1,0,1, 1.0);
 			return OUT;
 
 		}

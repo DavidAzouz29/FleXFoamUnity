@@ -10,7 +10,7 @@ namespace SSF
     public class SSF_ComposeFluid : UnityStandardAssets.ImageEffects.ImageEffectBase
     {
 
-        public Color m_color = Color.blue;
+        public Color m_color = Color.grey;
         public Color m_specular = Color.white;
 
         public float m_shininess = 64f;
