@@ -4,6 +4,11 @@
 /[Bb]uild/
 /[Bb]uilds/
 /Assets/AssetStoreTools*
+/Assets/uFlex/Common/Models/testzone.obj
+/Assets/uFleX/Common/Skyboxes*
+/Assets/uFleX/Scenes*
+/Assets/uFlex/Meshes*
+/Assets/uFlex/ScreenSpaceFluids uFlex*
 
 # Visual Studio 2015 cache directory
 /.vs/
